@@ -1,0 +1,12 @@
+apiVersion: ssh_key.oneprovider.oneprovider.com/v1alpha1
+kind: Key
+metadata:
+  annotations:
+    meta.upbound.io/example-id: ssh_key/v1alpha1/key
+  labels:
+    testing.upbound.io/example-name: ubuntu
+  name: ubuntu
+spec:
+  forProvider:
+    name: example
+    publicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYl

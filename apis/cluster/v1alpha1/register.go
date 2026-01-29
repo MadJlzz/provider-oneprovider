@@ -7,7 +7,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "template.crossplane.io"
+	Group   = "oneprovider.oneprovider.com"
 	Version = "v1alpha1"
 )
 

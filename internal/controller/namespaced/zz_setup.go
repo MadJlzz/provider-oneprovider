@@ -9,16 +9,18 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
-	resource "github.com/crossplane/upjet-provider-template/internal/controller/namespaced/null/resource"
-	providerconfig "github.com/crossplane/upjet-provider-template/internal/controller/namespaced/providerconfig"
+	providerconfig "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/providerconfig"
+	key "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/ssh_key/key"
+	instance "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/vm_instance/instance"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		resource.Setup,
 		providerconfig.Setup,
+		key.Setup,
+		instance.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
@@ -31,8 +33,9 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 // the supplied manager gated.
 func SetupGated(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		resource.SetupGated,
 		providerconfig.SetupGated,
+		key.SetupGated,
+		instance.SetupGated,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

@@ -10,9 +10,10 @@ package namespaced
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/crossplane/upjet-provider-template/apis/namespaced/null/v1alpha1"
-	v1alpha1namespaced "github.com/crossplane/upjet-provider-template/apis/namespaced/v1alpha1"
-	v1beta1 "github.com/crossplane/upjet-provider-template/apis/namespaced/v1beta1"
+	v1alpha1 "github.com/MadJlzz/provider-oneprovider/apis/namespaced/ssh_key/v1alpha1"
+	v1alpha1namespaced "github.com/MadJlzz/provider-oneprovider/apis/namespaced/v1alpha1"
+	v1beta1 "github.com/MadJlzz/provider-oneprovider/apis/namespaced/v1beta1"
+	v1alpha1vm_instance "github.com/MadJlzz/provider-oneprovider/apis/namespaced/vm_instance/v1alpha1"
 )
 
 func init() {
@@ -21,6 +22,7 @@ func init() {
 		v1alpha1.SchemeBuilder.AddToScheme,
 		v1alpha1namespaced.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,
+		v1alpha1vm_instance.SchemeBuilder.AddToScheme,
 	)
 }
 

@@ -6,13 +6,15 @@ import (
 
 	ujconfig "github.com/crossplane/upjet/v2/pkg/config"
 
-	nullCluster "github.com/crossplane/upjet-provider-template/config/cluster/null"
-	nullNamespaced "github.com/crossplane/upjet-provider-template/config/namespaced/null"
+	sshKeyCluster "github.com/MadJlzz/provider-oneprovider/config/cluster/ssh_key"
+	vmInstanceCluster "github.com/MadJlzz/provider-oneprovider/config/cluster/vm_instance"
+	sshKeyNamespaced "github.com/MadJlzz/provider-oneprovider/config/namespaced/ssh_key"
+	vmInstanceNamespaced "github.com/MadJlzz/provider-oneprovider/config/namespaced/vm_instance"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/crossplane/upjet-provider-template"
+	resourcePrefix = "oneprovider"
+	modulePath     = "github.com/MadJlzz/provider-oneprovider"
 )
 
 //go:embed schema.json
@@ -24,7 +26,7 @@ var providerMetadata string
 // GetProvider returns provider configuration
 func GetProvider() *ujconfig.Provider {
 	pc := ujconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
-		ujconfig.WithRootGroup("template.crossplane.io"),
+		ujconfig.WithRootGroup("oneprovider.oneprovider.com"),
 		ujconfig.WithIncludeList(ExternalNameConfigured()),
 		ujconfig.WithFeaturesPackage("internal/features"),
 		ujconfig.WithDefaultResourceOptions(
@@ -33,7 +35,8 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		nullCluster.Configure,
+		vmInstanceCluster.Configure,
+		sshKeyCluster.Configure,
 	} {
 		configure(pc)
 	}
@@ -45,7 +48,7 @@ func GetProvider() *ujconfig.Provider {
 // GetProviderNamespaced returns the namespaced provider configuration
 func GetProviderNamespaced() *ujconfig.Provider {
 	pc := ujconfig.NewProvider([]byte(providerSchema), resourcePrefix, modulePath, []byte(providerMetadata),
-		ujconfig.WithRootGroup("template.m.crossplane.io"),
+		ujconfig.WithRootGroup("oneprovider.m.oneprovider.com"),
 		ujconfig.WithIncludeList(ExternalNameConfigured()),
 		ujconfig.WithFeaturesPackage("internal/features"),
 		ujconfig.WithDefaultResourceOptions(
@@ -57,7 +60,8 @@ func GetProviderNamespaced() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		nullNamespaced.Configure,
+		vmInstanceNamespaced.Configure,
+		sshKeyNamespaced.Configure,
 	} {
 		configure(pc)
 	}

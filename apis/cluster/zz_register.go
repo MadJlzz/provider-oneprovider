@@ -10,9 +10,10 @@ package cluster
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/crossplane/upjet-provider-template/apis/cluster/null/v1alpha1"
-	v1alpha1cluster "github.com/crossplane/upjet-provider-template/apis/cluster/v1alpha1"
-	v1beta1 "github.com/crossplane/upjet-provider-template/apis/cluster/v1beta1"
+	v1alpha1 "github.com/MadJlzz/provider-oneprovider/apis/cluster/ssh_key/v1alpha1"
+	v1alpha1cluster "github.com/MadJlzz/provider-oneprovider/apis/cluster/v1alpha1"
+	v1beta1 "github.com/MadJlzz/provider-oneprovider/apis/cluster/v1beta1"
+	v1alpha1vm_instance "github.com/MadJlzz/provider-oneprovider/apis/cluster/vm_instance/v1alpha1"
 )
 
 func init() {
@@ -21,6 +22,7 @@ func init() {
 		v1alpha1.SchemeBuilder.AddToScheme,
 		v1alpha1cluster.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,
+		v1alpha1vm_instance.SchemeBuilder.AddToScheme,
 	)
 }
 

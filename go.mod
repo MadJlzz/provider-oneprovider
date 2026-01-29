@@ -1,4 +1,4 @@
-module github.com/crossplane/upjet-provider-template
+module github.com/MadJlzz/provider-oneprovider
 
 go 1.24.11
 
