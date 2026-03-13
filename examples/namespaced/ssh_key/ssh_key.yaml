@@ -1,10 +1,11 @@
-apiVersion: sshkey.m.oneprovider.com/v1beta1
-kind: Key
+apiVersion: m.oneprovider.com/v1alpha1
+kind: SshKey
 metadata:
   name: hello-crossplane
 spec:
   forProvider:
-    name: example
-    public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYl"
+    name: namespacedExample
+    publicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYw"
   providerConfigRef:
     name: default
+    kind: ProviderConfig

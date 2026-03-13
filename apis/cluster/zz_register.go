@@ -10,10 +10,9 @@ package cluster
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/MadJlzz/provider-oneprovider/apis/cluster/sshkey/v1alpha1"
+	v1alpha1 "github.com/MadJlzz/provider-oneprovider/apis/cluster/oneprovider/v1alpha1"
 	v1alpha1cluster "github.com/MadJlzz/provider-oneprovider/apis/cluster/v1alpha1"
 	v1beta1 "github.com/MadJlzz/provider-oneprovider/apis/cluster/v1beta1"
-	v1alpha1vm "github.com/MadJlzz/provider-oneprovider/apis/cluster/vm/v1alpha1"
 )
 
 func init() {
@@ -22,7 +21,6 @@ func init() {
 		v1alpha1.SchemeBuilder.AddToScheme,
 		v1alpha1cluster.SchemeBuilder.AddToScheme,
 		v1beta1.SchemeBuilder.AddToScheme,
-		v1alpha1vm.SchemeBuilder.AddToScheme,
 	)
 }
 

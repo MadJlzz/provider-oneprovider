@@ -1,4 +1,4 @@
-apiVersion: oneprovider.m.crossplane.io/v1beta1
+apiVersion: m.oneprovider.com/v1beta1
 kind: ClusterProviderConfig
 metadata:
   name: default

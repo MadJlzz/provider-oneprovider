@@ -7,6 +7,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("oneprovider_ssh_key", func(r *config.Resource) {
 		// We need to override the default group that upjet generated for
 		// this resource, which would be "github"
-		r.ShortGroup = "sshkey"
+		r.ShortGroup = ""
+		r.Kind = "SshKey"
 	})
 }

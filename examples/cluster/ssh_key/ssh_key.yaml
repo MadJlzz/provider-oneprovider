@@ -1,5 +1,5 @@
-apiVersion: sshkey.oneprovider.com/v1alpha1
-kind: Key
+apiVersion: oneprovider.com/v1alpha1
+kind: SshKey
 metadata:
   name: hello-crossplane
 spec:
