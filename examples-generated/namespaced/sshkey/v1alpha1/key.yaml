@@ -1,0 +1,12 @@
+apiVersion: sshkey.m.oneprovider.com/v1alpha1
+kind: Key
+metadata:
+  annotations:
+    meta.upbound.io/example-id: sshkey/v1alpha1/key
+  labels:
+    testing.upbound.io/example-name: ubuntu
+  name: ubuntu
+  namespace: crossplane-system
+spec:
+  forProvider:
+    publicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYl

@@ -10,8 +10,8 @@ import (
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
 	providerconfig "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/providerconfig"
-	key "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/ssh_key/key"
-	instance "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/vm_instance/instance"
+	key "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/sshkey/key"
+	instance "github.com/MadJlzz/provider-oneprovider/internal/controller/namespaced/vm/instance"
 )
 
 // Setup creates all controllers with the supplied logger and adds them to

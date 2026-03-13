@@ -7,7 +7,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "oneprovider.oneprovider.com"
+	Group   = "oneprovider.com"
 	Version = "v1alpha1"
 )
 
