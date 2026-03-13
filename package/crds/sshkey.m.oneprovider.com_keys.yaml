@@ -58,6 +58,11 @@ spec:
             properties:
               forProvider:
                 properties:
+                  name:
+                    description: |-
+                      (String) Name of the SSH key resource.
+                      Name of the SSH key resource.
+                    type: string
                   publicKey:
                     description: |-
                       (String) Public key value.
@@ -77,6 +82,11 @@ spec:
                   for example because of an external controller is managing them, like an
                   autoscaler.
                 properties:
+                  name:
+                    description: |-
+                      (String) Name of the SSH key resource.
+                      Name of the SSH key resource.
+                    type: string
                   publicKey:
                     description: |-
                       (String) Public key value.
@@ -142,6 +152,10 @@ spec:
             - forProvider
             type: object
             x-kubernetes-validations:
+            - message: spec.forProvider.name is a required parameter
+              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.name)
+                || (has(self.initProvider) && has(self.initProvider.name))'
             - message: spec.forProvider.publicKey is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.publicKey)
@@ -153,6 +167,11 @@ spec:
                 properties:
                   id:
                     description: (String) UUID of the SSH key resource.
+                    type: string
+                  name:
+                    description: |-
+                      (String) Name of the SSH key resource.
+                      Name of the SSH key resource.
                     type: string
                   publicKey:
                     description: |-

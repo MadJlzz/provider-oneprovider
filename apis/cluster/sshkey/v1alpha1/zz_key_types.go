@@ -15,6 +15,10 @@ import (
 
 type KeyInitParameters struct {
 
+	// (String) Name of the SSH key resource.
+	// Name of the SSH key resource.
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
 	// (String) Public key value.
 	// Public key value.
 	PublicKey *string `json:"publicKey,omitempty" tf:"public_key,omitempty"`
@@ -25,12 +29,21 @@ type KeyObservation struct {
 	// (String) UUID of the SSH key resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// (String) Name of the SSH key resource.
+	// Name of the SSH key resource.
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
+
 	// (String) Public key value.
 	// Public key value.
 	PublicKey *string `json:"publicKey,omitempty" tf:"public_key,omitempty"`
 }
 
 type KeyParameters struct {
+
+	// (String) Name of the SSH key resource.
+	// Name of the SSH key resource.
+	// +kubebuilder:validation:Optional
+	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (String) Public key value.
 	// Public key value.
@@ -74,6 +87,7 @@ type KeyStatus struct {
 type Key struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
+	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.publicKey) || (has(self.initProvider) && has(self.initProvider.publicKey))",message="spec.forProvider.publicKey is a required parameter"
 	Spec   KeySpec   `json:"spec"`
 	Status KeyStatus `json:"status,omitempty"`

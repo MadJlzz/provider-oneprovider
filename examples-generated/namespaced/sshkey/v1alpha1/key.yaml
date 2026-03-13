@@ -9,4 +9,5 @@ metadata:
   namespace: crossplane-system
 spec:
   forProvider:
+    name: example
     publicKey: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYl

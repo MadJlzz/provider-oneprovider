@@ -8,7 +8,7 @@ import (
 // provider.
 var ExternalNameConfigs = map[string]config.ExternalName{
 	"oneprovider_vm_instance": config.IdentifierFromProvider,
-	"oneprovider_ssh_key":     config.NameAsIdentifier,
+	"oneprovider_ssh_key":     config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the
