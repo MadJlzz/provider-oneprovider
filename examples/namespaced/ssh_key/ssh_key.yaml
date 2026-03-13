@@ -4,7 +4,7 @@ metadata:
   name: hello-crossplane
 spec:
   forProvider:
-    name: namespacedExample
+    name: namespacedexample
     publicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYw"
   providerConfigRef:
     name: default
