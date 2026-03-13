@@ -1,0 +1,13 @@
+apiVersion: m.oneprovider.com/v1alpha1
+kind: VmInstance
+metadata:
+  name: hello-oneprovider
+spec:
+  forProvider:
+    locationId: "34"
+    instanceSizeId: "109"
+    templateId: "1194"
+    hostname: "hello-oneprovider"
+  providerConfigRef:
+    name: default
+    kind: ProviderConfig

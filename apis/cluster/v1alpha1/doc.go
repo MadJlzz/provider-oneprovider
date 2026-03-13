@@ -1,5 +1,5 @@
-// Package v1alpha1 contains the core resources of the template jet provider.
+// Package v1alpha1 contains the core resources of the oneprovider jet provider.
 // +kubebuilder:object:generate=true
-// +groupName=template.crossplane.io
+// +groupName=oneprovider.com
 // +versionName=v1alpha1
 package v1alpha1

@@ -1,0 +1,14 @@
+apiVersion: oneprovider.com/v1alpha1
+kind: VmInstance
+metadata:
+  annotations:
+    meta.upbound.io/example-id: oneprovider/v1alpha1/vminstance
+  labels:
+    testing.upbound.io/example-name: vm
+  name: vm
+spec:
+  forProvider:
+    hostname: theOneRing
+    instanceSizeId: "45"
+    locationId: ${data.oneprovider_vm_location.paris.id}
+    templateId: ${data.oneprovider_vm_template.ubuntu.id}

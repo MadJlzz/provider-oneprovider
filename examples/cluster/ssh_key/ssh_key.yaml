@@ -1,0 +1,10 @@
+apiVersion: oneprovider.com/v1alpha1
+kind: SshKey
+metadata:
+  name: hello-oneprovider
+spec:
+  forProvider:
+    name: example
+    publicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMbAn3/YgZhhmsQIiGjOPOhODxpKXUo+LF3rFBvOOnYl"
+  providerConfigRef:
+    name: default
