@@ -16,7 +16,8 @@ resources:
             id: (String) UUID of the SSH key resource.
             name: (String) Name of the SSH key resource.
             public_key: (String) Public key value.
-        importStatements: []
+        importStatements:
+            - terraform import oneprovider_ssh_key.ubuntu "uuid"
     oneprovider_vm_instance:
         subCategory: ""
         description: Create a new VM instance.
@@ -43,4 +44,5 @@ resources:
             password: (String, Sensitive) Password of the root user
             ssh_keys: '(List of String) List of SSH keys UUID to add to the VM instance. Note: The OneProvider API does not return SSH key information, so the state reflects the configured values rather than the actual server state.'
             template_id: (String) Template ID referencing the OS to use for that VM instance
-        importStatements: []
+        importStatements:
+            - terraform import oneprovider_vm_instance.vm "id"
