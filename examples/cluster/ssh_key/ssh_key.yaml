@@ -1,7 +1,7 @@
 apiVersion: oneprovider.com/v1alpha1
 kind: SshKey
 metadata:
-  name: hello-crossplane
+  name: hello-oneprovider
 spec:
   forProvider:
     name: example
